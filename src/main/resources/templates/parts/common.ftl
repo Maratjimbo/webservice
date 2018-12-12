@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Marat</title>
+    <title>WebService</title>
 </head>
 <body>
 <#nested>

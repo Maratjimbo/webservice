@@ -11,4 +11,10 @@ public class MainController {
     public String greeting(Map<String, Object> model) {
         return "greeting";
     }
+
+    @GetMapping("/main")
+    public String main(){
+        return "main";
+    }
+
 }
