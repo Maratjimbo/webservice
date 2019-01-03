@@ -17,12 +17,16 @@
          </div>
     </form>
 
+
     <div class="card-columns">
     <#list articles as article>
         <div class="card my-3">
-        <div class="m-2">
-        <span>${article.text}</span>
-        </div>
+            <div class="m-2">
+                <span>${article.title}</span>
+            </div>
+            <div class="card-footer text-muted">
+                Автор статьи : ${article.authorName}
+            </div>
         </div>
     <#else>
         Пока что список пуст

@@ -1,5 +1,6 @@
 package com.suai.webservice.domain;
 import javax.persistence.*;
+import java.util.ArrayList;
 
 @Entity
 public class Article {
@@ -17,7 +18,8 @@ public class Article {
 
     private String title;
     private String text;
-    private String[] keyWords;
+
+    private ArrayList<String>keyWords;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
@@ -26,10 +28,25 @@ public class Article {
     public Article() {
     }
 
-    public Article(String text, User user){
+    public Article(String text, String title, User user){
         this.text = text;
+        this.title = title;
         this.author = user;
+        this.keyWords = new ArrayList<>();
     }
+
+    public String getAuthorName() {
+        return author != null ? author.getUsername() : "<none>";
+    }
+
+    public ArrayList<String> getKeyWords() {
+        return keyWords;
+    }
+
+    public void setKeyWords(String keyWords) {
+        this.keyWords.add(keyWords);
+    }
+
 
     public User getAuthor() {
         return author;

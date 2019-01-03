@@ -1,7 +1,9 @@
 package com.suai.webservice.controller;
 
+import com.suai.webservice.domain.Article;
 import com.suai.webservice.domain.Message;
 import com.suai.webservice.domain.User;
+import com.suai.webservice.repos.ArticleRepo;
 import com.suai.webservice.repos.MessageRepo;
 import com.suai.webservice.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,9 @@ public class MainController {
     private MessageRepo messageRepo;
 
     @Autowired
+    private ArticleRepo articleRepo;
+
+    @Autowired
     private UserRepo userRepo;
 
     @Value("${upload.path}")
@@ -36,27 +41,11 @@ public class MainController {
     }
 
     @GetMapping("/main")
-    public String main(@RequestParam(required = false, defaultValue = "") String filter,
-                       @RequestParam(required = false, defaultValue = "") String username, Model model) {
-        Iterable<Message> messages = messageRepo.findAll();
-
-        if (filter != null && !filter.isEmpty()) {
-            messages = messageRepo.findByTag(filter);
-        } else if (username != null && !username.isEmpty()) {
-            User user = userRepo.findByUsername(username);
-            messages = messageRepo.findByAuthor(user);
-        }else {
-            messages = messageRepo.findAll();
-        }
-
-        model.addAttribute("messages", messages);
-        model.addAttribute("filter", filter);
-        model.addAttribute("username", username);
-
+    public String main(Map<String, Object> model){
+        Iterable<Article> articles = articleRepo.findAll();
+        model.put("articles", articles);
         return "main";
     }
-
-
 
 
     @PostMapping("/main")
@@ -92,15 +81,6 @@ public class MainController {
         return "main";
     }
 
-    @GetMapping("/deleteMessage")
-    public String delete(@RequestParam Long id,
-                         Map<String, Object> model){
-        messageRepo.deleteById(id);
 
-        Iterable<Message> messages = messageRepo.findAll();
 
-        model.put("messages", messages);
-
-        return "main";
-    }
 }
