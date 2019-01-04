@@ -40,13 +40,16 @@ public class ArticleController {
             }
         }
 
-        /*model.put("title", cur_article.getTitle());
+        if(cur_article.getTitle() != null){
+            model.put("title", cur_article.getTitle());
+        }
         model.put("author", cur_article.getAuthorName());
         if(cur_article.getDate() != null){
             model.put("date", cur_article.getDate().toString());
         }
-        model.put("file", cur_article.getFilename());*/
-        model.put("file", cur_article.getFilename());
+        if(cur_article.getFilename() != null){
+            model.put("file", cur_article.getFilename());
+        }
 
         return "one";
     }
