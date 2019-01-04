@@ -14,9 +14,10 @@
         <form class="form-inline" method="post" action="/showArticle">
             <input type="hidden" value="${article.id}" name="id" />
             <input type="hidden" value="${_csrf.token}" name="_csrf" />
-            <button type="submit">Просмотреть</button>
+            <button type="submit" class="btn btn-primary mt-2">Просмотреть</button>
         </form>
         </div>
+
     <#else>
         Пока что список пуст
     </#list>

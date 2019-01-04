@@ -6,5 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
 
 public interface ArticleRepo extends CrudRepository<Article, Long> {
+    public Article findByDate(Long date);
 
+    public Article findByTitle(String title);
 }

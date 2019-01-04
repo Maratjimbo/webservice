@@ -17,9 +17,20 @@
             </li>
             <#if isAdmin>
             <li class="nav-item">
-                <a class="nav-link" href="/user">User list</a>
+                <a class="nav-link" href="/user">Список пользователей</a>
             </li>
             </#if>
+            <li class="nav-item">
+                <a class="nav-link" href="/search">Поиск статьи</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/article">Добавить статью</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/allArticle">Мои статьи</a>
+            </li>
+
+
         </ul>
 
         <div class="navbar-text mr-3">${name}</div>
