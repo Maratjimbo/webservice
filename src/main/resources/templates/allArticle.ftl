@@ -21,6 +21,11 @@
                 <input type="hidden" value="${_csrf.token}" name="_csrf" />
                 <button type="submit" class="btn btn-primary mt-2">Удалить</button>
             </form>
+            <form class="form-inline" method="post" action="/editArticle">
+                <input type="hidden" value="${article.id}" name="id" />
+                <input type="hidden" value="${_csrf.token}" name="_csrf" />
+                <button type="submit" class="btn btn-primary mt-2">Редактировать</button>
+            </form>
             </div>
         </#list>
         </div>

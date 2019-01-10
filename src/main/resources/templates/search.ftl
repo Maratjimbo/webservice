@@ -4,22 +4,22 @@
     <form action="/search" method="get">
     <div class="form-group">
         <h4>Поиск по автору</h4>
-        <input type="text" class="form-control" name="authorName" value="${authorName?if_exists}" placeholder="Введите автора">
+        <input type="text" class="form-control" name="authorName" value="${authorName?if_exists}" placeholder="Введите автора"/>
         <button type="submit" class="btn btn-primary mt-2">Поиск</button>
     </div>
     <div class="form-group">
         <h4>Поиск по ключевому слову</h4>
-        <input type="text" class="form-control" name="word" value="${word?if_exists}" placeholder="Введите ключевое слово">
+        <input type="text" class="form-control" name="word" value="${word?if_exists}" placeholder="Введите ключевое слово"/>
         <button type="submit" class="btn btn-primary mt-2">Поиск</button>
     </div>
     <div class="form-group">
         <h4>Поиск по названию</h4>
-        <input type="text" class="form-control" name="title" value="${title?if_exists}" placeholder="Введите название">
+        <input type="text" class="form-control" name="title" value="${title?if_exists}" placeholder="Введите название"/>
         <button type="submit" class="btn btn-primary mt-2">Поиск</button>
     </div>
     <div class="form-group">
         <h4>Поиск по году написания</h4>
-        <input type="text" class="form-control" name="date" value="${date?if_exists}" placeholder="Введите год написания">
+        <input type="text" class="form-control" name="date" value="${date?if_exists}" placeholder="Введите год написания"/>
         <button type="submit" class="btn btn-primary mt-2">Поиск</button>
     </div>
     </form>
@@ -45,8 +45,8 @@
     </#if>
 
     <#if message??>
-        <div class="form-group">
-            <br/>${message?if_exists}<br/>
+        <div class="form-group" id="message-id">
+            ${message?if_exists}
         </div>
     </#if>
 

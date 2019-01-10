@@ -91,4 +91,8 @@ public class Article {
         }
         return false;
     }
+
+    public void deleteWords(){
+        keyWords.clear();
+    }
 }
